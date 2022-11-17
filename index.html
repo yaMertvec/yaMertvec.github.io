@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mesto</title>
+  <link rel="stylesheet" href="./pages/index.css">
+</head>
+
+<body class="page">
+  <header class="header">
+    <img src="./images/logo.svg" alt="лого Место" class="header__logo">
+  </header>
+  <main class="content">
+    <section class="profile">
+      <div>
+        <img src="./images/profile__photo.jpg" alt="Аватарка" class="profile__avatar">
+      </div>
+      <div class="profile__info">
+        <div class="profile__container">
+          <h1 class="profile__title">Жак-Ив Кусто</h1>
+          <button class="profile__edit-button  popup__opened"></button>
+        </div>
+        <p class="profile__subtitle">Исследователь океана</p>
+      </div>
+      <button class="profile__add-button"></button>
+    </section>
+    <section class="elements-container">
+      <ul class="elements">
+        <li class="card">
+          <img src="./images/svinus.jpg" alt="Поросенок" class="card__image">
+          <div class="card__description">
+            <h2 class="card__title">Свинус</h2>
+            <button data-id="1" class="card__like-button"></button>
+          </div>
+        </li>
+        <li class="card">
+          <img src="./images/pandus.jpg" alt="Панда" class="card__image">
+          <div class="card__description">
+            <h2 class="card__title">Пандус</h2>
+            <button data-id="2" class="card__like-button"></button>
+          </div>
+        </li>
+        <li class="card">
+          <img src="./images/kotus.jpg" alt="Котик" class="card__image">
+          <div class="card__description">
+            <h2 class="card__title">Котус</h2>
+            <button data-id="3" class="card__like-button"></button>
+          </div>
+        </li>
+        <li class="card">
+          <img src="./images/mopsus.jpg" alt="Мопс" class="card__image">
+          <div class="card__description">
+            <h2 class="card__title">Мопсус</h2>
+            <button data-id="4" class="card__like-button"></button>
+          </div>
+        </li>
+        <li class="card">
+          <img src="./images/jirafus.jpg" alt="Жираф" class="card__image">
+          <div class="card__description">
+            <h2 class="card__title">Жирафус</h2>
+            <button data-id="5" class="card__like-button"></button>
+          </div>
+        </li>
+        <li class="card">
+          <img src="./images/enotus.jpg" alt="Енот" class="card__image">
+          <div class="card__description">
+            <h2 class="card__title">Енотус</h2>
+            <button data-id="6" class="card__like-button"></button>
+          </div>
+        </li>
+      </ul>
+
+    </section>
+  </main>
+  <section class="popup">
+    <div class="popup__container">
+      <form class="popup__form">
+        <h2 class="popup__title">Редактировать профиль</h2>
+        <input type="text" name="userName" placeholder="Имя" class="popup__input popup__name">
+        <input type="text" name="userJob" placeholder="Работа" class="popup__input popup__job">
+        <button class="popup__submit" type="submit">
+          <p class="popup__text">Сохранить</p>
+        </button>
+      </form>
+
+      <button class="popup__close"></button>
+    </div>
+  </section>
+  <footer class="footer">
+    <p class="footer__info">&#169 2022 Mesto Russia</p>
+  </footer>
+  <script src="./scripts/script.js"></script>
+</body>
+
+</html>
