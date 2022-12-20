@@ -1,0 +1,6 @@
+.popup__image-element {
+  background-size: cover;
+  margin: 0 auto;
+  max-height: 75vh;
+  max-width: 75vw;
+}

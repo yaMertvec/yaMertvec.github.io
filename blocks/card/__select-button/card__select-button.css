@@ -1,0 +1,8 @@
+.card__select-button {
+  position: absolute;
+  width: 282px;
+  height: 282px;
+  top:0px;
+  left: 0px;
+  cursor: pointer;
+}
