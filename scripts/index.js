@@ -7,10 +7,10 @@ const openPopupProfileEdit = document.querySelector('.profile__edit-button');
 const pageElement = document.querySelector('.page');
 const profileName = pageElement.querySelector('.profile__title');
 const profileJob = pageElement.querySelector('.profile__subtitle');
-const EditFormElement = popupProfileEdit.querySelector('.popup__edit');
-const AddFormElement= document.querySelector('.popup__add');
-const nameInput = EditFormElement.querySelector('.popup__input_data_name');
-const jobInput = EditFormElement.querySelector('.popup__input_data_job');
+const editFormElement = popupProfileEdit.querySelector('.popup__edit');
+const addFormElement= document.querySelector('.popup__add');
+const nameInput = editFormElement.querySelector('.popup__input_data_name');
+const jobInput = editFormElement.querySelector('.popup__input_data_job');
 const openAddCardButton = document.querySelector('.profile__add-button');
 const popupPlace = document.querySelector('.popup__input_data_place');
 const popupPlaceLink = document.querySelector('.popup__input_data_place-link');
@@ -115,7 +115,7 @@ function handleFormEditSubmit(e) {
   closePopup(popupProfileEdit);
 }
 
-EditFormElement.addEventListener('submit', handleFormEditSubmit);
+editFormElement.addEventListener('submit', handleFormEditSubmit);
 openPopupProfileEdit.addEventListener('click', () => {
   nameInput.value = profileName.textContent;
   jobInput.value = profileJob.textContent;
@@ -137,19 +137,18 @@ closeCardAddPopup.addEventListener('click', () => {
 
 function handleAddCardFormSubmit(e) {
   e.preventDefault();
-  e.submitter.disabled = true;
-  e.submitter.classList.add('popup__button_disabled')
+  disableButton(e.submitter,config)
+  // e.submitter.disabled = true;
+  // e.submitter.classList.add('popup__button_disabled')
   const card = {
     name: popupPlace.value,
     link: popupPlaceLink.value
   }
-
   renderCard(card)
   closePopup(popupCardAdd);
  e.target.reset();
 }
-AddFormElement.addEventListener('submit', handleAddCardFormSubmit);
-
+addFormElement.addEventListener('submit', handleAddCardFormSubmit);
 closeImagePopup.addEventListener('click' , () => {
   closePopup(popupImage);
 })

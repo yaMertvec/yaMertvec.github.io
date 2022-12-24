@@ -12,24 +12,32 @@ const hideInputError = (config, form, input) => {
   // error.classList.remove(config.errorClass);
   error.textContent = "";
 }
-const checkInputValidity = (input, config,form) => {
+const checkInputValidity = (input, config, form) => {
   if (!input.validity.valid) {
     showInputError(config, form, input, input.validationMessage);
   } else {
     hideInputError(config, form, input);
   }
 }
+const enableButton = (button, config) => {
+  button.classList.remove(config.inactiveButtonClass)
+  button.disabled = ''
+}
 
-const toggleButton = (inputs, button, config) => {
-  const isFormValid = inputs.every(input => input.validity.valid)
+const disableButton = (button, config) => {
+  button.classList.add(config.inactiveButtonClass)
+  button.disabled = 'disabled'
+}
+
+const toggleButton = (button, config, isFormValid) => {
   if (isFormValid) {
-    button.classList.remove(config.inactiveButtonClass)
-    button.disabled = ''
+    enableButton(button, config)
   } else {
-    button.classList.add(config.inactiveButtonClass)
-    button.disabled = 'disabled'
+    disableButton(button, config)
   }
 }
+
+
 
 const enableValidation = (config) => {
   const forms = [...document.querySelectorAll(config.formSelector)]
@@ -38,20 +46,21 @@ const enableValidation = (config) => {
     const button = form.querySelector(config.submitButtonSelector)
     inputs.forEach(input => {
       input.addEventListener('input', () => {
-        checkInputValidity(input, config,form)
-        toggleButton(inputs, button, config)
+        const isFormValid = inputs.every(input => input.validity.valid)
+        checkInputValidity(input, config, form)
+        toggleButton(button, config, isFormValid)
       })
     })
   })
 }
 
-const config = ({
+const config = {
   formSelector: '.popup__form',
   inputSelector: '.popup__input',
   submitButtonSelector: '.popup__button',
   inactiveButtonClass: 'popup__button_disabled',
   inputErrorClass: 'popup__input_type_error',
   errorClass: 'popup__error_visible'
-});
+};
 
 enableValidation(config);
